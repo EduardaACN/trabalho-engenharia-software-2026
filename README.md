@@ -4,4 +4,24 @@ Trabalho de clínica veterinária do Técnico em Informática, segundo semestre 
 Este repositório é onde vou guardar meu trabalho da disciplina de Engenharia de Software
 
 protótipo do site de veterinária https://www.figma.com/design/pRAxrL7OQCi1t7lscXrpr3/Sem-t%C3%ADtulo?node-id=0-1&t=PlbzRAmXWYac0Rb8-1  25/9/26
-Eduarda Aparecida
+
+## Diagrama UML
+
+```mermaid
+flowchart TD
+    %% atores
+    cliente["cliente"]
+    garçom["garçom"]
+
+    %%ações
+    subgraph sistema
+        comida["pedir comida"]
+        vinho["pedir vinho"]
+    end
+
+    %% relacionamentos
+    cliente -- "faz pedido" --- comida
+    garçom -- "recebe pedido" --- comida
+
+    vinho -. "estende" .-> comida
+```
