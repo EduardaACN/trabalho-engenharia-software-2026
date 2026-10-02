@@ -7,6 +7,8 @@ protótipo do site de veterinária https://www.figma.com/design/pRAxrL7OQCi1t7ls
 
 ## Diagramas UML
 
+### Diagrama de caso de uso
+
 ```mermaid
 flowchart TD
     %% atores
@@ -25,4 +27,35 @@ flowchart TD
 
     vinho -. "estende" .-> comida
 ```
+### Diagrama de classe
+
+```mermaid
+classDiagram
+    class Veterinário {
+        %% atributos: características que serão armazenadas no sistema
+        -CPF: string
+        %% métodos: ações que serão desempenhadas por essa entidade no sistema
+        +darCPF() string
+        +atender Animal(animal: Amimal) void
+    }
+
+    Veterinário -- Animal
+    Animal -- Cliente
+
+    class Animal {
+        -dono: Cliente
+        -nome: string
+        -idade: string
+        -espécie: string
+        +darNome(): string
+        +darIdade(): string
+        +darEspécie(): string
+    }
+
+    class Cliente{
+        -animais: Lista de Animal[]
+
+    }
+```
+
 2/10/26
