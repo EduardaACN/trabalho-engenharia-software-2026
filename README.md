@@ -1,5 +1,5 @@
 # trabalho-engenharia-software-2026
-Trabalho de clínica veterinária do Técnico em Informática, segundo semestre de 2026.
+Trabalho de clínica veterinária do Técnico em Informática, segundo semestre de 2026. Eduarda Aparecida
 
 Este repositório é onde vou guardar meu trabalho da disciplina de Engenharia de Software
 
@@ -25,3 +25,4 @@ flowchart TD
 
     vinho -. "estende" .-> comida
 ```
+2/10/26
