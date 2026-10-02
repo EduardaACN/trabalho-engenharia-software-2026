@@ -5,7 +5,7 @@ Este repositório é onde vou guardar meu trabalho da disciplina de Engenharia d
 
 protótipo do site de veterinária https://www.figma.com/design/pRAxrL7OQCi1t7lscXrpr3/Sem-t%C3%ADtulo?node-id=0-1&t=PlbzRAmXWYac0Rb8-1  25/9/26
 
-## Diagrama UML
+## Diagramas UML
 
 ```mermaid
 flowchart TD
