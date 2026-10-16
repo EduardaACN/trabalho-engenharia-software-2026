@@ -53,8 +53,8 @@ dados -- Dados de --> animal
 veterinario -- Realiza --> consulta
 exame -- Resulta --> tratamento
 consulta -- Resulta --> exame
-histórico -- Checado para --> tratamento
-dados -- Checado para --> tratamento
+histórico -- Checado para --> exame
+dados -- Checado para --> exame
 tratamento -- Recebe --> animal
 tratamento -- Encaminha --> site
 consulta -- Resulta --> pagamento
