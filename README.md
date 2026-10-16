@@ -63,31 +63,85 @@ consulta -- Resulta --> pagamento
 
 ```mermaid
 classDiagram
-    class Veterinário {
-        %% atributos: características que serão armazenadas no sistema
-        -CPF: string
-        %% métodos: ações que serão desempenhadas por essa entidade no sistema
-        +darCPF() string
-        +atender Animal(animal: Amimal) void
+    class Veterinario {
+        -CPF: String
+        -nome: String
+        +darCPF() String
+        +atenderAnimal(animal: Animal) void
+        +realizarCadastro() void
+        +realizarExame() void
     }
-
-    Veterinário -- Animal
-    Animal -- Cliente
 
     class Animal {
-        -dono: Cliente
-        -nome: string
-        -idade: string
-        -espécie: string
-        +darNome(): string
-        +darIdade(): string
-        +darEspécie(): string
+        #nome: String
+        #idade: int
+        #especie: String
+        #peso: float
+        +darNome() String
+        +darIdade() int
+        +darEspecie() String
+        +darEspecificações(especificações: Especificações) void
+    }
+    class Especificações {
+        -tipoSanguineo: String
+        -problemaSaude: String
+        -usoMedicamento: String
+        -Temperamento: String
+        +registrarDados() void
+        +darDados() String
+
+    }
+    class Tutor {
+        -nome: String
+        -animais: Animal[]
+        +darDados() String
     }
 
-    class Cliente{
-        -animais: Lista de Animal[]
-
+    class Login {
+        -login: String
+        -cadastro: String
+        -senha: String
+        +autenticar()void
+        +acessoSite()void
     }
+
+    class Site {
+        -cadastroTutor: String
+        -cadastroAnimal: String
+        -histórico: String
+        -Especificações:String 
+        +exibirCadastroTutor() void
+        +exibirCadastroAnimal() void
+        +exibirHistorico() void
+        +exibirEspecificações()void
+        +exibirLogin()void
+    }
+
+    class Historico {
+        -idHistorico: int
+        -data: int
+        -diagnostico: String
+        -tratamento: String
+        -observações: String
+        +registrarAtendimento() void
+        +consultarHistorico() String
+    }
+
+    Veterinario "1" -- "*" Animal : atende
+    Veterinario -- Site : acessa
+    Site ..> Tutor : cadastra
+    Site ..> Animal : cadastra
+    Site ..> Historico : consulta
+    Site ..> Especificações : consulta
+    Tutor "1" -- "*" Animal : possui
+    Tutor ..> Site : acessa
+    Veterinario "1" -- "*" Tutor : atende
+    Animal "1" --> "*"Especificações : possui
+    Animal "1" ..> "*" Historico : possui
+    Veterinario "1" -- "*" Historico : registra
+    Veterinario "1" -- "*" Especificações : registra
+    Site -- Login: possui
+    Login -- Site: etapa
 ```
 
 2/10/26
