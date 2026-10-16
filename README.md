@@ -128,7 +128,7 @@ classDiagram
     }
 
     Veterinario "1" -- "*" Animal : atende
-    Veterinario -- Site : acessa
+    Veterinario "1" --> "*" Site : acessa
     Site ..> Tutor : cadastra
     Site ..> Animal : cadastra
     Site ..> Historico : consulta
