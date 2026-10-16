@@ -11,21 +11,53 @@ protótipo do site de veterinária https://www.figma.com/design/pRAxrL7OQCi1t7ls
 
 ```mermaid
 flowchart TD
-    %% atores
-    cliente["cliente"]
-    garçom["garçom"]
+    cliente["Tutor(a) 
+    👤"]
+    animal["Animal 
+    🐾"]
+    veterinario["Veterinário(a) 
+    🩺"]
+subgraph sistema clínica
+    consulta["Consulta"]
+subgraph sistema software
+    login["Login/Criar conta"]
+    site["Site da Clínica
+    🖥️"]
+    histórico["Histórico Animal
+    "]
+    CT["Cadastro de Tutor"]
+    CA["Cadastro de Animal"]
+    dados["Especificações"]
+end
+    exame[Exame Veterinário]
+    tratamento["Tratamento"]
+    pagamento["Pagamento"]
+end
 
-    %%ações
-    subgraph sistema
-        comida["pedir comida"]
-        vinho["pedir vinho"]
-    end
-
-    %% relacionamentos
-    cliente -- "faz pedido" --- comida
-    garçom -- "recebe pedido" --- comida
-
-    vinho -. "estende" .-> comida
+cliente -- Marca --> consulta
+cliente -- Possui --> animal
+animal -- Levado --> consulta
+veterinario -- Acessa --> site
+cliente -. Verifica .-> site
+site -- Etapa --> login
+login -- Acesso --> site
+site -. Procura .-> histórico
+site -- Registra --> histórico
+site -. Procura .-> CT
+site -. Procura .-> CA
+site -- Cria --> CT
+site -- Cria --> CA
+CT -- Dados de --> cliente
+CA -- Anotação de --> dados
+dados -- Dados de --> animal
+veterinario -- Realiza --> consulta
+exame -- Resulta --> tratamento
+consulta -- Resulta --> exame
+histórico -- Checado para --> tratamento
+dados -- Checado para --> tratamento
+tratamento -- Recebe --> animal
+tratamento -- Encaminha --> site
+consulta -- Resulta --> pagamento
 ```
 ### Diagrama de classe
 
